@@ -8,7 +8,7 @@ from langchain_core.messages.base import BaseMessage, BaseMessageChunk
 class HumanMessage(BaseMessage):
     """Message from a human.
 
-    HumanMessages are messages that are passed in from a human to the model.
+    ``HumanMessage``s are messages that are passed in from a human to the model.
 
     Example:
 
@@ -36,10 +36,15 @@ class HumanMessage(BaseMessage):
 
     At the moment, this is ignored by most models. Usage is discouraged.
     Defaults to False.
+
     """
 
     type: Literal["human"] = "human"
-    """The type of the message (used for serialization). Defaults to "human"."""
+    """The type of the message (used for serialization).
+
+    Defaults to ``'human'``.
+
+    """
 
     def __init__(
         self, content: Union[str, list[Union[str, dict]]], **kwargs: Any
@@ -49,6 +54,7 @@ class HumanMessage(BaseMessage):
         Args:
             content: The string contents of the message.
             kwargs: Additional fields to pass to the message.
+
         """
         super().__init__(content=content, **kwargs)
 

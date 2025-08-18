@@ -57,8 +57,11 @@ class BaseMessage(Serializable):
     """
 
     id: Optional[str] = Field(default=None, coerce_numbers_to_str=True)
-    """An optional unique identifier for the message. This should ideally be
-    provided by the provider/model which created the message."""
+    """An optional unique identifier for the message.
+
+    This should ideally be provided by the provider/model which created the message.
+
+    """
 
     model_config = ConfigDict(
         extra="allow",
@@ -71,6 +74,7 @@ class BaseMessage(Serializable):
 
         Args:
             content: The string contents of the message.
+
         """
         super().__init__(content=content, **kwargs)
 
@@ -88,6 +92,7 @@ class BaseMessage(Serializable):
         """Get the namespace of the langchain object.
 
         Default is ``['langchain', 'schema', 'messages']``.
+
         """
         return ["langchain", "schema", "messages"]
 
